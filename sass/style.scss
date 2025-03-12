@@ -79,9 +79,9 @@ body {
         transition: background .3s, border .3s, color .3s;
 
         &:hover {
-            color: $veryDarkBlue;
+            color: #fff;
             background: none;
-            border: 2px solid $veryDarkBlue;
+            border: 2px solid #fff;
         }
 
         &::after {
@@ -90,7 +90,7 @@ body {
             width: 100%;
             height: 100%;
             opacity: 0;
-            border: 2px solid $veryDarkBlue;
+            border: 2px solid #fff;
             inset: 0;
             border-radius: inherit;
         }
@@ -148,7 +148,7 @@ body {
 
     &__body-white-box {
         position: absolute;
-        width: min(180px, 55%);
+        width: min(200px, 55%);
         padding: 1em 2em;
         left: 50%;
         bottom: -2.5em;
@@ -176,7 +176,7 @@ body {
     }
     to {
         opacity: 0;
-        transform: scale(1.4);
+        transform: scale(1.3);
     }
 }
 
@@ -232,16 +232,17 @@ body {
 @media (768px <= width) {
 
     .card {
-
+        overflow: hidden;
         &__body-white-box {
             padding: 1em 2em;
             top: -2em;
             right: 2em;
             left: unset;
             bottom: unset;
-            transform: translate(0);
+            transform: translateY(80%) translateX(50%) rotate(50deg);
             background-color: #fff;
             border-bottom-right-radius: 0;
+            animation: rotate .4s forwards 1 cubic-bezier(0.25, 0.1, 0.12, 1.73);
 
             &::before {
                 position: absolute;
@@ -252,8 +253,12 @@ body {
                 height: 0; 
                 border-top: 25px solid transparent;
                 border-bottom: 25px solid transparent; 
-                border-right:25px solid red; 
+                border-right:25px solid #fff; 
             }
+        }
+        &__body-white-box-number {
+            justify-content: flex-start;
+            letter-spacing: 1px;
         }
     }
 }
@@ -263,6 +268,7 @@ body {
         background-color: $veryDarkBlue;
         .desktop-visible {
             display:block;
+            height: 50%;
             width: 100%;
             bottom: 0;
             inset-inline: 0;
@@ -273,7 +279,10 @@ body {
     
     }
     .card {
-
+        overflow: visible;
+        .text-grayed {
+            font-size: .8rem;
+        }
         &__head {
             width: 35%;
         }
@@ -283,5 +292,28 @@ body {
         &__body {
             width: 65%;
         }
+        &__bar {
+            height: 25px;
+            padding: 0.18em;
+        }
+        &__body-white-box {
+            top: -3em;
+        }
+        &__body-white-box-number {
+            font-size: 2.5rem;
+
+        }
+    }
+}
+
+
+@keyframes rotate {
+    from {
+        opacity: 0;
+        transform: translateY(80%) translateX(50%) rotate(50deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0) rotate(0);
     }
 }
