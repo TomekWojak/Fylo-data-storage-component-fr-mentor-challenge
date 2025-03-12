@@ -77,7 +77,12 @@ body {
         border: 2px solid transparent;
         font-size: 1.5rem;
         transition: background .3s, border .3s, color .3s;
-
+        &:nth-child(1) {
+            padding: 0.6em 0.8em;
+        }
+        &:nth-child(2) {
+            padding: 0.6em 0.7em;
+        }
         &:hover {
             color: #fff;
             background: none;
@@ -119,6 +124,7 @@ body {
         height: 20px;
         border-radius: 30px;
         background-color: $veryDarkBlue;
+        overflow: hidden;
     }
     &__bar--inside {
         position: relative;
@@ -126,6 +132,7 @@ body {
         border-radius: inherit;
         height: 100%;
         background: $loadingBarColor;
+        animation: loading 2s ease forwards 1;
 
         &::before {
             content: '';
@@ -186,9 +193,7 @@ body {
         &__logo{
             width: 150px;
         }
-        &__icon {
-            padding: 0.7em;
-        }
+
         &__body-title {
             text-align: left;
         }
@@ -233,6 +238,7 @@ body {
 
     .card {
         overflow: hidden;
+        
         &__body-white-box {
             padding: 1em 2em;
             top: -2em;
@@ -256,6 +262,8 @@ body {
                 border-right:25px solid #fff; 
             }
         }
+     
+
         &__body-white-box-number {
             justify-content: flex-start;
             letter-spacing: 1px;
@@ -280,8 +288,12 @@ body {
     }
     .card {
         overflow: visible;
+
         .text-grayed {
             font-size: .8rem;
+        }
+        &__logo {
+            width: 170px;
         }
         &__head {
             width: 35%;
@@ -315,5 +327,14 @@ body {
     to {
         opacity: 1;
         transform: translateY(0) translateX(0) rotate(0);
+    }
+}
+
+@keyframes loading {
+    from {
+        width: 0;
+    }
+    to {
+        width: 75%;
     }
 }

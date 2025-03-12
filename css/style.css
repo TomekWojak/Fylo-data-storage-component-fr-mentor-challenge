@@ -66,6 +66,12 @@ body .mobile-visible {
   font-size: 1.5rem;
   transition: background 0.3s, border 0.3s, color 0.3s;
 }
+.card__icon:nth-child(1) {
+  padding: 0.6em 0.8em;
+}
+.card__icon:nth-child(2) {
+  padding: 0.6em 0.7em;
+}
 .card__icon:hover {
   color: #fff;
   background: none;
@@ -104,6 +110,7 @@ body .mobile-visible {
   height: 20px;
   border-radius: 30px;
   background-color: hsl(229, 57%, 11%);
+  overflow: hidden;
 }
 .card__bar--inside {
   position: relative;
@@ -111,6 +118,7 @@ body .mobile-visible {
   border-radius: inherit;
   height: 100%;
   background: linear-gradient(45deg, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+  animation: loading 2s ease forwards 1;
 }
 .card__bar--inside::before {
   content: "";
@@ -162,9 +170,6 @@ body .mobile-visible {
 @media (500px <= width) {
   .card__logo {
     width: 150px;
-  }
-  .card__icon {
-    padding: 0.7em;
   }
   .card__body-title {
     text-align: left;
@@ -248,6 +253,9 @@ body .mobile-visible {
   .card .text-grayed {
     font-size: 0.8rem;
   }
+  .card__logo {
+    width: 170px;
+  }
   .card__head {
     width: 35%;
   }
@@ -276,5 +284,13 @@ body .mobile-visible {
   to {
     opacity: 1;
     transform: translateY(0) translateX(0) rotate(0);
+  }
+}
+@keyframes loading {
+  from {
+    width: 0;
+  }
+  to {
+    width: 75%;
   }
 }/*# sourceMappingURL=style.css.map */
